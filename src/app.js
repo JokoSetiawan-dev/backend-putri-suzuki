@@ -14,7 +14,7 @@ require('dotenv').config();
 // app.use(helmet()); // Security headers
 // app.use(cors()); // Enable CORS
 // app.use(morgan('dev')); // HTTP request logger
-// app.use(express.json()); // Parse JSON bodies
+app.use(express.json()); // Parse JSON bodies
 // app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 // API Routes
