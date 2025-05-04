@@ -24,12 +24,13 @@ class ProductController {
 
   createProduct = async (req, res) => {
     try {
-      const { name, description, price, dp } = req.body;
+      const { name, description, price, dp, image_url } = req.body;
       const { data, error } = await productService.createProduct({
         name,
         description,
         price,
         dp,
+        image_url
       });
       if (error) return res.status(400).json({ error: error.message });
       res.status(201).json(data);
