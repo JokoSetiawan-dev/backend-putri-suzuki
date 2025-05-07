@@ -33,7 +33,7 @@ class ProductController {
         image_url
       });
       if (error) return res.status(400).json({ error: error.message });
-      res.status(201).json(data);
+      res.status(201).json({message: "Succesfully add new product",data});
     } catch (error) {
       res.status(500).json({ error: 'Internal server error' });
     }
@@ -48,9 +48,10 @@ class ProductController {
         description,
         price,
         dp,
+        image_url,
       });
       if (error) return res.status(400).json({ error: error.message });
-      res.json(data);
+      res.status(200).json({message:"Data succesfully updated",data});
     } catch (error) {
       res.status(500).json({ error: 'Internal server error' });
     }
@@ -61,7 +62,7 @@ class ProductController {
       const { id } = req.params;
       const { data, error } = await productService.deleteProduct(id);
       if (error) return res.status(400).json({ error: error.message });
-      res.json({ message: 'Product deleted successfully', data });
+      res.status(200).json({ message: 'Product deleted successfully', data });
     } catch (error) {
       res.status(500).json({ error: 'Internal server error' });
     }
