@@ -42,7 +42,7 @@ class ProductController {
   updateProduct = async (req, res) => {
     try {
       const { id } = req.params;
-      const { name, description, price, dp } = req.body;
+      const { name, description, price, dp, image_url } = req.body;
       const { data, error } = await productService.updateProduct(id, {
         name,
         description,
